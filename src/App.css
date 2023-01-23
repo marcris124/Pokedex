@@ -239,6 +239,7 @@
 .pokemon-card{
   transform: none;
   box-shadow: 0px 0px 0px 4px rgb(174 174 174);
+  margin: 0.5rem;
 }
 
 .pokemon-card img{

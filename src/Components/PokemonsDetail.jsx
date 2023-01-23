@@ -9,6 +9,7 @@ import atack from '../Components/images/atack.png'
 import defence from '../Components/images/defence.png'
 import speed from '../Components/images/speed.png'
 
+import { Link } from 'react-router-dom';
 
 const PokemonsDetail = () => {
 
@@ -23,7 +24,6 @@ const PokemonsDetail = () => {
   },[])
 
 
-console.log(pokemon);
 
   return (
     <div className='details-container'>
@@ -34,6 +34,10 @@ console.log(pokemon);
          <img src={pokemon.sprites?.other.home.front_default} alt="" />
         </div>
       </div>
+      <div className='return-btn'>
+        <Link to={"/Pokemons"}><i className="fa-solid fa-arrow-left"></i></Link>
+        </div>
+       
 
       <div className='pokemon-details'>
         <div className='content-details'>
@@ -51,7 +55,7 @@ console.log(pokemon);
 
 
           </div>
-
+       
           <div className='stats'>
          
          <div className='stats-content'>

@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import ImgNull from '../Components/images/nullPokemonImg.png'
+
 const PokemonCard = ({url}) => {
 
   const [pokemon, setpokemon] = useState({})
@@ -15,6 +17,23 @@ const PokemonCard = ({url}) => {
     .then(res => setpokemon(res.data))
   },[])
 
+  const types = pokemon.types?.[0].type.name
+
+
+
+
+  const changeColorCardPokemon =()=>{
+    if (types ==='normal') {
+        return '#735159'
+    }else if (types === 'fighting') {
+        return '#973f26'
+    }
+}
+
+  console.log(pokemon);
+
+const imagePokemon = pokemon.sprites?.other.home.front_default;
+
 
   return (
     <div 
@@ -22,7 +41,7 @@ const PokemonCard = ({url}) => {
     onClick={() => navigate(`/Pokemons/${pokemon.id}`)}>
     
        
-      <img src={pokemon.sprites?.other.home.front_default} alt="" />
+      <img src={imagePokemon ? imagePokemon : ImgNull} alt="" />
       <div className='info-card'>
        <p><b>Nº: </b> {pokemon.id} </p>
         <h2>{pokemon.name} </h2>

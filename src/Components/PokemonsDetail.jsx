@@ -11,10 +11,11 @@ import speed from '../Components/images/speed.png'
 
 import { Link } from 'react-router-dom';
 
+import ImgNull from '../Components/images/nullPokemonImg.png'
+
 const PokemonsDetail = () => {
 
   const { id } = useParams()
-
   const [pokemon,setpokemon] = useState({})
 
   useEffect(() => {
@@ -24,14 +25,72 @@ const PokemonsDetail = () => {
   },[])
 
 
+  const [btnChange,setbtnChange] = useState(false)
+
+  const btnClick = () =>{
+    setbtnChange(!btnChange) 
+  }
+
+  const body = document.body.className=btnChange ? "dark" : "active"
+
+
+  const typeOne = pokemon?.types?.[1]?.type.name;
+  const typeTwo = pokemon?.types?.[0]?.type.name;
+  const changeColorCardPokemon = () => {
+    if (typeTwo === "normal" || typeOne === "") {
+      return "rgb(10 98 4)";
+    } else if (typeTwo === "fighting" || typeOne === "") {
+      return "#973F26";
+    } else if (typeTwo === "poison" || typeOne === "") {
+      return "#5B2D86";
+    } else if (typeTwo === "ground" || typeOne === "") {
+      return "#FFEB3B";
+    } else if (typeTwo === "rock" || typeOne === "") {
+      return "#46180B";
+    } else if (typeTwo === "bug" || typeOne === "") {
+      return "rgb(159 191 32)";
+    } else if (typeTwo === "ghost" || typeOne === "") {
+      return "rgb(61 43 104)";
+    } else if (typeTwo === "fire" || typeOne === "") {
+      return "rgb(253 0 47 / 94%)";
+    } else if (typeTwo === "water" || typeOne === "") {
+      return "rgb(0 98 245)";
+    } else if (typeTwo === "grass" || typeOne === "") {
+      return "rgb(84 255 89 / 78%)";
+    } else if (typeTwo === "electric" || typeOne === "") {
+      return "#E2E02D";
+    } else if (typeTwo === "ice" || typeOne === "") {
+      return "#86D2F4";
+    } else if (typeTwo === "dragon" || typeOne === "") {
+      return "rgb(151 39 253 / 92%)";
+    } else if (typeTwo === "dark" || typeOne === "") {
+      return "rgb(64 0 167)";
+    } else if (typeTwo === "fairy" || typeOne === "") {
+      return "rgb(255 130 199)";
+    } else if (typeTwo === "psychic" || typeOne === "") {
+      return "rgb(177 64 247)";
+    } else if (typeTwo === "steel" || typeOne === "") {
+      return "rgb(68 78 80)";
+    } else {
+      return "#CEB8D7";
+    }
+  };
+
+  const imagePokemon = pokemon.sprites?.other.home.front_default;
+
 
   return (
     <div className='details-container'>
-
+      <div className='btn-mode'>
+      <button onClick={btnClick} className={btnChange ? "switch active" : "switch"} id="switch">
+           <span><i className="fa-solid fa-sun"></i></span>
+           <span><i className="fa-solid fa-moon"></i></span>  
+             </button>
+    </div>
       <div className='descrip-pokemon'> 
         
          <div className='detail-image'>
-         <img src={pokemon.sprites?.other.home.front_default} alt="" />
+         <img src={imagePokemon ? imagePokemon : ImgNull} alt="" />
         </div>
       </div>
       <div className='return-btn'>
@@ -40,7 +99,9 @@ const PokemonsDetail = () => {
        
 
       <div className='pokemon-details'>
-        <div className='content-details'>
+        <div className='content-details'
+              style={{background:changeColorCardPokemon()}}
+        >
           <h2 className='id'># {pokemon.id} </h2>
           <h1>{pokemon.name}  </h1>
 

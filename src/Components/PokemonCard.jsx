@@ -76,7 +76,7 @@ const PokemonCard = ({url}) => {
     } else if (typeTwo === "poison" || typeOne === "") {
       return ImgPsychic;
     } else if (typeTwo === "ground" || typeOne === "") {
-      return ImgAll;
+      return ImgRock;
     } else if (typeTwo === "rock" || typeOne === "") {
       return ImgRock;
     } else if (typeTwo === "bug" || typeOne === "") {

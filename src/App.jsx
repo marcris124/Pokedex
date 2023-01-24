@@ -9,6 +9,7 @@ import ProtectedRoutes from './Components/protectedRoutes'
 
 function App() {
 
+
   return (
     <div className="App">
     <HashRouter>

@@ -18,10 +18,18 @@ const PokemonsDetail = () => {
   const { id } = useParams()
   const [pokemon,setpokemon] = useState({})
 
+  const [isLoading,setisLoading] = useState(true)
+
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-    .then(res => setpokemon(res.data))
-
+    .then(res => {
+      
+      setpokemon(res.data)
+    
+    //setTimeout(() =>setisLoading(false), 10000)
+    setisLoading(false)
+    })
+    
   },[])
 
 
@@ -81,6 +89,15 @@ const PokemonsDetail = () => {
 
   return (
     <div className='details-container'>
+
+    {
+
+isLoading ? (
+  <div className='screen-2'><img src="https://i.gifer.com/Q568.gif" alt="" /></div>
+) : (
+  <>
+  
+  
       <div className='btn-mode'>
       <button onClick={btnClick} className={btnChange ? "switch active" : "switch"} id="switch">
            <span><i className="fa-solid fa-sun"></i></span>
@@ -158,6 +175,13 @@ const PokemonsDetail = () => {
 
         </div>
       </div>
+  
+  </>
+
+)
+
+    }
+
 
     </div>
   );

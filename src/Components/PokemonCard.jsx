@@ -22,9 +22,16 @@ const PokemonCard = ({url}) => {
 
   const navigate = useNavigate()
 
+  const [isLoading,setisLoading] = useState(true)
+
   useEffect(() => {
     axios.get( url )
-    .then(res => setpokemon(res.data))
+    .then(res =>{
+      setpokemon(res.data)
+        //Pantalla de carga
+      //setTimeout(() =>setisLoading(false), 10000)
+      setisLoading(false)
+    } )
   },[])
 
   const typeOne = pokemon?.types?.[1]?.type.name;
@@ -114,20 +121,30 @@ const imagePokemon = pokemon.sprites?.other.home.front_default;
 
   return (
     <div 
-    
     className='pokemon-card' 
     style={{backgroundImage:`url(${changeBackgroundCardPokemon()})` }}
     onClick={() => navigate(`/Pokemons/${pokemon.id}`)}>
-    
-       
+
+      {
+        isLoading ? (
+          <div className='screen'><img src="https://i.gifer.com/origin/06/068c8f36ce4e0216bcc86ccc2e2401a0.gif" alt="" /></div>
+        ) : (
+          <>
+          
+             
       <img src={imagePokemon ? imagePokemon : ImgNull} alt="" />
       <div className='info-card' style={{background:changeColorCardPokemon()}}>
        <p><b>Nº: </b> {pokemon.id} </p>
         <h2>{pokemon.name} </h2>
         <h3><b>type:</b> {pokemon.types?.[0].type.name} </h3>
-      </div>
+      </div>          
+          </>
+        )
+      }
+    
+    
 
-    </div>
+     </div>
   );
 };
 

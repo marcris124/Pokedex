@@ -327,6 +327,25 @@ body.dark{
   padding-left: 1rem;
 }
 
+.screen-2{
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://images.wikidexcdn.net/mwuploads/wikidex/e/e6/latest/20171001182738/EP946_Bosque_de_Melemele.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.screen img{
+  
+}
+
+
+
 @media screen and (max-width:600px) {
 .type-search{
   flex-direction: column;

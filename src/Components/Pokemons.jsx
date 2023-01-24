@@ -28,7 +28,6 @@ const Pokemons = () => {
     .then(res => setpoketype(res.data.results))
   },[])
 
-  console.log(poketype);
 
   const [page,setpage ]= useState(1);
   const pokemonsPerPage = 20; //pokemones por pagina
@@ -37,6 +36,9 @@ const Pokemons = () => {
   const pokemonsPaginated = pokemonsId.slice(firstIndex,lastIndex);
   const totalPages =Math.ceil(pokemonsId.length / pokemonsPerPage);
   
+  
+
+
 
   const search = () =>{
     navigate(`/Pokemons/${inputSearch}`)
@@ -46,6 +48,8 @@ const Pokemons = () => {
     axios.get(e.target.value)
     .then(res => setpokemonsId(res.data.pokemon))
   }
+
+console.log(pokemonsId);
 
   return (
     <div className='container'>
@@ -80,6 +84,8 @@ const Pokemons = () => {
       <div>
         <h3>Types</h3>
         <select onChange={filterTypes} name="" id="" >
+
+          <option value={pokemonsId}>All</option>
           {poketype.map(types => (
             <option key={types.url} value={types.url}>{types.name}</option>
           ))}

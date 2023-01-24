@@ -21,12 +21,22 @@ const Pokemons = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    axios.get("https://pokeapi.co/api/v2/pokemon/")
+    axios.get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1279")
     .then(res => setpokemonsId(res.data.results));
 
     axios.get("https://pokeapi.co/api/v2/type/")/*9:30 ver clase para entender*/
     .then(res => setpoketype(res.data.results))
   },[])
+
+  console.log(poketype);
+
+  const [page,setpage ]= useState(1);
+  const pokemonsPerPage = 20; //pokemones por pagina
+   const lastIndex = page * pokemonsPerPage;
+  const firstIndex = lastIndex - pokemonsPerPage;
+  const pokemonsPaginated = pokemonsId.slice(firstIndex,lastIndex);
+  const totalPages =Math.ceil(pokemonsId.length / pokemonsPerPage);
+  
 
   const search = () =>{
     navigate(`/Pokemons/${inputSearch}`)
@@ -77,10 +87,11 @@ const Pokemons = () => {
       </div>
     </div>
 </div>
+<div className='number-page'> <h5>pages</h5> <h3> {page} / {totalPages} </h3></div>  
 
     <div className='container-pokemons'>
       {
-        pokemonsId.map(pokemon =>(
+        pokemonsPaginated.map(pokemon =>(
          <PokemonCard 
             url= {pokemon.url? pokemon.url : pokemon.pokemon.url } 
             key={pokemon.url ? pokemon.url : pokemon.pokemon.url } 
@@ -89,6 +100,29 @@ const Pokemons = () => {
       }
       
       </div>
+
+      
+        <button 
+          className="btn-after"
+          onClick={() => setpage(page-1)}
+          disabled={page === 1}>
+
+              <i className="fa-solid fa-arrow-left"></i>
+
+          </button>
+          
+        <button 
+          className="btn-next"
+          onClick={()  =>  setpage(page+1)}
+          disabled={page === totalPages}
+          >
+            
+            <i className="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+      
+
     </div>
   );
 };

@@ -26,8 +26,9 @@ const PokemonsDetail = () => {
       
       setpokemon(res.data)
     
-    //setTimeout(() =>setisLoading(false), 10000)
+    
     setisLoading(false)
+    //setTimeout(() =>setisLoading(false), 10000)
     })
     
   },[])

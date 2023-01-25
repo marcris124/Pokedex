@@ -608,16 +608,22 @@ body.dark {
     height: 100vh;
     margin: unset;
     border-radius: unset;
-    background-position: -14rem -1rem;
-    background-size: 58rem;
+    background-position:center;
+    background-size: cover;
+  }
+  .user-info:hover{
+    background-position: right;
   }
 
   .input-user {
     height: 32vh;
     background-size: cover;
     border-radius: unset;
-
   }
+
+ .input-user:hover{
+  background-size: cover;
+ }
 
   .register h1 {
     left: 0;

@@ -6,6 +6,8 @@ import { changePokemon } from '../store/slices/pokeNames.slice';
 
 import pokemonLogo from '../Components/images/pokemonLogo3.png'
 import teamRocket from '../Components/images/teamRocketTransparente.png'
+import pikachuDiamond from '../Components/images/pikachuDiamond.png'
+
 const Pokedex = () => {
 
   const dispatch = useDispatch()
@@ -49,7 +51,7 @@ const Pokedex = () => {
               onChange={(e) => setinputValue(e.target.value)}
               id="user"
             />
-            <button onClick={clickButton}><i className="fa-solid fa-address-card"></i></button>
+            <button onClick={clickButton}><i className="fa-solid fa-paper-plane"></i></button>
           </div>
         </div>
       </div>

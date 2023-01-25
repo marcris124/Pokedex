@@ -35,7 +35,7 @@ const Pokemons = () => {
 
 
   const [page, setpage] = useState(1);
-  const pokemonsPerPage = 20; //pokemones por pagina
+  const pokemonsPerPage = 16; //pokemones por pagina
   const lastIndex = page * pokemonsPerPage;
   const firstIndex = lastIndex - pokemonsPerPage;
   const pokemonsPaginated = pokemonsId.slice(firstIndex, lastIndex);
@@ -98,6 +98,7 @@ const Pokemons = () => {
           </div>
         </div>
       </div>
+
       <div className='number-page'> <h5>pages</h5> <h3> {page} / {totalPages} </h3></div>
 
       <div className='container-pokemons'>

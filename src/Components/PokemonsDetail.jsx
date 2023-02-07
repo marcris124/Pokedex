@@ -47,39 +47,39 @@ const PokemonsDetail = () => {
   const typeTwo = pokemon?.types?.[0]?.type.name;
   const changeColorCardPokemon = () => {
     if (typeTwo === "normal" || typeOne === "") {
-      return "rgb(10 98 4)";
+      return "linear-gradient(143deg,#00b143 30%, #52ff5d 40%, #ffcd00 80%)";
     } else if (typeTwo === "fighting" || typeOne === "") {
-      return "#973F26";
+      return "  linear-gradient(146deg,#da1c1c 30%, #656565 50%, #2078d2 60%)";
     } else if (typeTwo === "poison" || typeOne === "") {
-      return "#5B2D86";
+      return " linear-gradient(217deg,rgba(181,3,255,0.92) 30%, rgba(72,0,136,0.91) 60%)";
     } else if (typeTwo === "ground" || typeOne === "") {
-      return "#FFEB3B";
+      return " linear-gradient(217deg,rgba(190,122,0,0.92) 30%, rgba(146,70,50,0.91) 60%)";
     } else if (typeTwo === "rock" || typeOne === "") {
-      return "#46180B";
+      return "linear-gradient(217deg,rgba(0,149,12,0.92) 30%, #4bff00 45%, rgba(139,139,139,0.91) 60%)";
     } else if (typeTwo === "bug" || typeOne === "") {
-      return "rgb(159 191 32)";
+      return "linear-gradient(217deg,rgba(3,255,126,0.92) 30%, rgba(0,136,49,0.91) 60%)";
     } else if (typeTwo === "ghost" || typeOne === "") {
-      return "rgb(61 43 104)";
+      return "linear-gradient(217deg,rgba(123,15,167,0.92) 30%, #009dff 45%, rgba(63,18,139,0.91) 60%)";
     } else if (typeTwo === "fire" || typeOne === "") {
-      return "rgb(253 0 47 / 94%)";
+      return " linear-gradient(217deg,rgba(255,115,3,0.92) 30%, rgba(226,52,68,0.91) 60%)";
     } else if (typeTwo === "water" || typeOne === "") {
-      return "rgb(0 98 245)";
+      return " linear-gradient(217deg,rgba(3,233,255,0.92) 30%, rgba(53,55,254,0.91) 60%)";
     } else if (typeTwo === "grass" || typeOne === "") {
-      return "rgb(84 255 89 / 78%)";
+      return "linear-gradient(197deg,#00c553 40%, #00ff00 80%)";
     } else if (typeTwo === "electric" || typeOne === "") {
-      return "#E2E02D";
+      return " linear-gradient(217deg,rgba(3,158,255,0.92) 30%, rgba(243,226,15,0.91) 45%)";
     } else if (typeTwo === "ice" || typeOne === "") {
-      return "#86D2F4";
+      return "linear-gradient(143deg,#00ece5 30%, #00bdff 40%, #d1e5f8 80%)";
     } else if (typeTwo === "dragon" || typeOne === "") {
-      return "rgb(151 39 253 / 92%)";
+      return "linear-gradient(143deg,#0c7ef3 30%, #eaf32a 50%, #ff0558 80%)";
     } else if (typeTwo === "dark" || typeOne === "") {
-      return "rgb(64 0 167)";
+      return " linear-gradient(143deg,#000b92 30%, #22c9f3 70%, #3d0083 80%)";
     } else if (typeTwo === "fairy" || typeOne === "") {
-      return "rgb(255 130 199)";
+      return " linear-gradient(217deg,rgba(181,3,255,0.92) 30%, rgba(254,119,188,0.91) 60%)";
     } else if (typeTwo === "psychic" || typeOne === "") {
-      return "rgb(177 64 247)";
+      return " linear-gradient(217deg,rgba(46,236,254,0.92) 30%, #ff00df 45%, rgba(178,61,226,0.91) 60%)";
     } else if (typeTwo === "steel" || typeOne === "") {
-      return "rgb(68 78 80)";
+      return " linear-gradient(143deg,#acacac 30%, #c5c5c5 40%, #6f6f6f 80%)";
     } else {
       return "#CEB8D7";
     }

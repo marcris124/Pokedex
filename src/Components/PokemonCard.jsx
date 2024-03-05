@@ -4,14 +4,14 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import ImgNull from '../Components/images/nullPokemonImg.png'
-import ImgAll from '../Components/images/typeAll.jpg'
-import ImgWater from '../Components/images/typeWater.jpg'
-import ImgFire from '../Components/images/typeFire.png'
-import ImgGhost from '../Components/images/typeGhost.jpg'
-import ImgIce from '../Components/images/typeIce.jpg'
-import ImgPsychic from '../Components/images/typePsychic.png'
-import ImgRock from '../Components/images/typeRock.jpg'
+import ImgNull from '../Components/images/nullPokemonImg.webp'
+import ImgAll from '../Components/images/typeAll.webp'
+import ImgWater from '../Components/images/typeWater.webp'
+import ImgFire from '../Components/images/typeFire.webp'
+import ImgGhost from '../Components/images/typeGhost.webp'
+import ImgIce from '../Components/images/typeIce.webp'
+import ImgPsychic from '../Components/images/typePsychic.webp'
+import ImgRock from '../Components/images/typeRock.webp'
 
 
 
@@ -121,7 +121,7 @@ const PokemonCard = ({ url }) => {
 
   return (
     <div
-      className='pokemon-card'
+      className='pokemon-card border-2 border-white'
       style={{ backgroundImage: `url(${changeBackgroundCardPokemon()})` }}
       onClick={() => navigate(`/Pokemons/${pokemon.id}`)}>
 
@@ -132,7 +132,7 @@ const PokemonCard = ({ url }) => {
           <>
 
 
-            <img src={imagePokemon ? imagePokemon : ImgNull} alt="" />
+            <img src={imagePokemon ? imagePokemon : ImgNull} className='shadow-pokemons' alt="" />
             <div className='info-card' style={{ background: changeColorCardPokemon() }}>
               <p><b>Nº: </b> {pokemon.id} </p>
               <h2>{pokemon.name} </h2>

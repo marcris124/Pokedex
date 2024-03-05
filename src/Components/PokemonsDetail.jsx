@@ -11,7 +11,7 @@ import speed from '../Components/images/speed.png'
 
 import { Link } from 'react-router-dom';
 
-import ImgNull from '../Components/images/nullPokemonImg.png'
+import ImgNull from '../Components/images/nullPokemonImg.webp'
 
 const PokemonsDetail = () => {
 
@@ -89,20 +89,20 @@ const PokemonsDetail = () => {
 
 
   return (
-    <div className='details-container'>
+    <div className='details-container '>
 
     {
 
 isLoading ? (
-  <div className='screen-2'><img src="https://i.gifer.com/Q568.gif" alt="" /></div>
+  <div className='screen-2 scrollbar-none'><img src="https://i.gifer.com/Q568.gif" alt="" /></div>
 ) : (
   <>
   
   
       <div className='btn-mode'>
       <button onClick={btnClick} className={btnChange ? "switch active" : "switch"} id="switch">
-           <span><i className="fa-solid fa-sun"></i></span>
-           <span><i className="fa-solid fa-moon"></i></span>  
+           <span><i className="fa-solid fa-sun ease-linear"></i></span>
+           <span><i className="fa-solid fa-moon ease-linear"></i></span>  
              </button>
     </div>
       <div className='descrip-pokemon'> 

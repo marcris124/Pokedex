@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import "./index.css";
 import './App.css'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import Pokemons from './Components/Pokemons'
@@ -11,7 +10,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="App ">
     <HashRouter>
       <Routes>
       

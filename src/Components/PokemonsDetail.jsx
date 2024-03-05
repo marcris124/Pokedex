@@ -1,47 +1,41 @@
-import axios from 'axios';
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import axios from "axios";
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 
-import lifeImg from '../Components/images/life.png'
-import atack from '../Components/images/atack.png'
-import defence from '../Components/images/defence.png'
-import speed from '../Components/images/speed.png'
+import lifeImg from "../Components/images/life.png";
+import atack from "../Components/images/atack.png";
+import defence from "../Components/images/defence.png";
+import speed from "../Components/images/speed.png";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import ImgNull from '../Components/images/nullPokemonImg.webp'
+import ImgNull from "../Components/images/nullPokemonImg.webp";
 
 const PokemonsDetail = () => {
+  const { id } = useParams();
+  const [pokemon, setpokemon] = useState({});
 
-  const { id } = useParams()
-  const [pokemon,setpokemon] = useState({})
-
-  const [isLoading,setisLoading] = useState(true)
+  const [isLoading, setisLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-    .then(res => {
-      
-      setpokemon(res.data)
-    
-    
-    setisLoading(false)
-    //setTimeout(() =>setisLoading(false), 10000)
-    })
-    
-  },[])
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`).then((res) => {
+      setpokemon(res.data);
 
+      setisLoading(false);
+      //setTimeout(() =>setisLoading(false), 10000)
+    });
+  }, []);
+  console.log(pokemon);
 
-  const [btnChange,setbtnChange] = useState(false)
+  const [btnChange, setbtnChange] = useState(false);
 
-  const btnClick = () =>{
-    setbtnChange(!btnChange) 
-  }
+  const btnClick = () => {
+    setbtnChange(!btnChange);
+  };
 
-  const body = document.body.className=btnChange ? "dark" : "active"
-
+  const body = (document.body.className = btnChange ? "dark" : "active");
 
   const typeOne = pokemon?.types?.[1]?.type.name;
   const typeTwo = pokemon?.types?.[0]?.type.name;
@@ -87,103 +81,136 @@ const PokemonsDetail = () => {
 
   const imagePokemon = pokemon.sprites?.other.home.front_default;
 
-
   return (
-    <div className='details-container '>
-
-    {
-
-isLoading ? (
-  <div className='screen-2 scrollbar-none'><img src="https://i.gifer.com/Q568.gif" alt="" /></div>
-) : (
-  <>
-  
-  
-      <div className='btn-mode'>
-      <button onClick={btnClick} className={btnChange ? "switch active" : "switch"} id="switch">
-           <span><i className="fa-solid fa-sun ease-linear"></i></span>
-           <span><i className="fa-solid fa-moon ease-linear"></i></span>  
-             </button>
-    </div>
-      <div className='descrip-pokemon'> 
-        
-         <div className='detail-image'>
-         <img src={imagePokemon ? imagePokemon : ImgNull} alt="" />
+    <div className="details-container ">
+      {isLoading ? (
+        <div className="screen-2 scrollbar-none">
+          <img src="https://i.gifer.com/Q568.gif" alt="" />
         </div>
-      </div>
-      <div className='return-btn'>
-        <Link to={"/Pokemons"}><i className="fa-solid fa-arrow-left"></i></Link>
-        </div>
-       
-
-      <div className='pokemon-details'>
-        <div className='content-details'
-              style={{background:changeColorCardPokemon()}}
-        >
-          <h2 className='id'># {pokemon.id} </h2>
-          <h1>{pokemon.name}  </h1>
-
-          <div className='info-1'>
-            <div className="info-1-content"><h2>Weight <br /> </h2><p> {pokemon.weight} Kg </p>   </div>
-            <div className="info-1-content"> <h2>height <br /> </h2><p> {pokemon.height} M </p>  </div>        
-
-            <div className="info-1-content"><h2> Type <br /> </h2> <p><span> {pokemon.types?.[0].type.name}</span></p> </div>
-            <div className="info-1-content"><h2>Abilities <br /> </h2> <p> <span> {pokemon.abilities?.[0].ability.name}</span><span> {pokemon.abilities?.[1].ability.name} </span></p> </div>
-           
-
-
-
+      ) : (
+        <>
+          <div className="btn-mode">
+            <button
+              onClick={btnClick}
+              className={btnChange ? "switch active" : "switch"}
+              id="switch"
+            >
+              <span>
+                <i className="fa-solid fa-sun ease-linear"></i>
+              </span>
+              <span>
+                <i className="fa-solid fa-moon ease-linear"></i>
+              </span>
+            </button>
           </div>
-       
-          <div className='stats'>
-         
-         <div className='stats-content'>
-
-            <div className='stats-info'>
-               <div className='stats-name'><img src={lifeImg} alt="" /><h2>{pokemon.stats?.[0].stat.name} </h2></div>    <h3>{pokemon.stats?.[0].base_stat} </h3>
+          <div className="descrip-pokemon">
+            <div className="detail-image">
+              <img src={imagePokemon ? imagePokemon : ImgNull} alt="" />
             </div>
-
-            <div className='stats-info'>
-               <div className='stats-name'> <img src={atack} alt="" /> <h2>{pokemon.stats?.[1].stat.name} </h2> </div>     <h3>{pokemon.stats?.[1].base_stat} </h3>
-            </div>
-
-            <div className='stats-info'>
-                <div className='stats-name'> <img src={defence} alt="" /> <h2>{pokemon.stats?.[2].stat.name} </h2> </div><h3>{pokemon.stats?.[2].base_stat} </h3>
-            </div>
-
-            <div className='stats-info'>
-                 <div className='stats-name'> <img src={speed} alt="" /> <h2>{pokemon.stats?.[5].stat.name} </h2></div>    <h3>{pokemon.stats?.[5].base_stat} </h3>
-            </div>
-
-
+          </div>
+          <div className="return-btn">
+            <Link to={"/Pokemons"}>
+              <i className="fa-solid fa-arrow-left"></i>
+            </Link>
           </div>
 
-</div>
-          <div className="info-2">
-              <h2>Movements</h2>
-            <div className="movements">
-              {
-                pokemon.moves?.map(movements => (
-                  <div key={movements?.move.url} className='info-2-content'>
-                   <h3>{movements?.move.name}</h3>  
-                  </div> 
-                ))
-              }
+          <div className="pokemon-details">
+            <div
+              className="content-details"
+              style={{ background: changeColorCardPokemon() }}
+            >
+              <h2 className="id"># {pokemon.id} </h2>
+              <h1>{pokemon.name} </h1>
 
+              <div className="info-1">
+                <div className="info-1-content">
+                  <h2>
+                    Weight <br />{" "}
+                  </h2>
+                  <p> {pokemon.weight} Kg </p>{" "}
+                </div>
+                <div className="info-1-content">
+                  {" "}
+                  <h2>
+                    height <br />{" "}
+                  </h2>
+                  <p> {pokemon.height} M </p>{" "}
+                </div>
+
+                <div className="info-1-content">
+                  <h2>
+                    {" "}
+                    Type <br />{" "}
+                  </h2>{" "}
+                  <p>
+                    <span> {pokemon.types?.[0].type.name}</span>
+                  </p>{" "}
+                </div>
+                <div className="info-1-content">
+                  <h2>
+                    Abilities <br />{" "}
+                  </h2>{" "}
+                  <p>
+                    {" "}
+                    {pokemon.abilities.map((ability, index) => (
+                      <span key={index}> {ability.ability.name} </span>
+                    ))}
+                  </p>{" "}
+                </div>
+              </div>
+
+              <div className="stats">
+                <div className="stats-content">
+                  <div className="stats-info">
+                    <div className="stats-name">
+                      <img src={lifeImg} alt="" />
+                      <h2>{pokemon.stats?.[0].stat.name} </h2>
+                    </div>{" "}
+                    <h3>{pokemon.stats?.[0].base_stat} </h3>
+                  </div>
+
+                  <div className="stats-info">
+                    <div className="stats-name">
+                      {" "}
+                      <img src={atack} alt="" />{" "}
+                      <h2>{pokemon.stats?.[1].stat.name} </h2>{" "}
+                    </div>{" "}
+                    <h3>{pokemon.stats?.[1].base_stat} </h3>
+                  </div>
+
+                  <div className="stats-info">
+                    <div className="stats-name">
+                      {" "}
+                      <img src={defence} alt="" />{" "}
+                      <h2>{pokemon.stats?.[2].stat.name} </h2>{" "}
+                    </div>
+                    <h3>{pokemon.stats?.[2].base_stat} </h3>
+                  </div>
+
+                  <div className="stats-info">
+                    <div className="stats-name">
+                      {" "}
+                      <img src={speed} alt="" />{" "}
+                      <h2>{pokemon.stats?.[5].stat.name} </h2>
+                    </div>{" "}
+                    <h3>{pokemon.stats?.[5].base_stat} </h3>
+                  </div>
+                </div>
+              </div>
+              <div className="info-2">
+                <h2>Movements</h2>
+                <div className="movements">
+                  {pokemon.moves?.map((movements) => (
+                    <div key={movements?.move.url} className="info-2-content">
+                      <h3>{movements?.move.name}</h3>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-
           </div>
-
-        </div>
-      </div>
-  
-  </>
-
-)
-
-    }
-
-
+        </>
+      )}
     </div>
   );
 };

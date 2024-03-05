@@ -292,7 +292,7 @@ body.dark {
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 41rem;
+  background-size: 45rem;
   transform: skew(-26deg, 0deg);
   margin: 1rem;
 }
@@ -302,7 +302,7 @@ body.dark {
   box-shadow: 12px 12px 7px rgb(27, 27, 27);
   scale: 1.1;
   transition: all 0.6s;
-  background-size: 50rem;
+  background-size: 55rem;
   transform: skew(4deg, 0deg);
   z-index: 1;
 }

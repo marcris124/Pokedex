@@ -6,18 +6,11 @@ import { useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import PokemonCard from "./PokemonCard";
 import { Link } from "react-router-dom";
-import bgPokemonPx from "../Components/images/bg-pokemon.webp";
 import pokemonLogo from "../Components/images/pokemonLogo3.png";
-import pokedexLogo from "../Components/images/pokedexLogo.png";
 import videoBg from "../Components/videos/paisaje.mp4";
 import {
   Button,
-  IconButton,
   Input,
-  Menu,
-  MenuHandler,
-  MenuItem,
-  MenuList,
   Navbar,
   Typography,
 } from "@material-tailwind/react";

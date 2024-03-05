@@ -33,7 +33,7 @@ const Pokedex = () => {
   return (
     <div
       style={{
-        background: `url(${bgMain})`,
+        background: `url("${bgMain}")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

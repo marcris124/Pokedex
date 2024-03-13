@@ -74,7 +74,7 @@ const Pokemons = () => {
               <div className="select-container text-white ">
                 <h3>Types</h3>
                 <select
-                  className="custom-select bg-[#062e4b]"
+                  className="custom-select bg-[#062e4b] scrollbar-none"
                   onChange={filterTypes}
                   name="pokemonTypes"
                   id="pokemonTypes"
@@ -154,6 +154,33 @@ const Pokemons = () => {
           ))}
         </div>
       </>
+      <div className="relative flex  justify-center items-center z-10">
+          <Button
+            
+            className="gradient-button"
+            onClick={() => setpage(page - 1)}
+            disabled={page === 1}
+          >
+            <i className="fa-solid fa-arrow-left text-2xl"></i>
+          </Button>
+          <div className="number-page  ">
+            {" "}
+            <h5>pages</h5>{" "}
+            <h3>
+              {" "}
+              {page} / {totalPages}{" "}
+            </h3>
+          </div>
+
+          <Button
+            
+            className="gradient-button"
+            onClick={() => setpage(page + 1)}
+            disabled={page === totalPages}
+          >
+            <i className="fa-solid fa-arrow-right text-2xl"  ></i>
+          </Button>
+        </div>
     </div>
   );
 };

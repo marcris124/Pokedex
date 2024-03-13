@@ -54,7 +54,7 @@ const Pokedex = () => {
             </Typography>
             <Typography
               color="black"
-              className="mt-1 font-normal"
+              className="mt-1 font-normal font-semibold"
               placeholder={""}
             >
               ¡Encantado de conocerlo!
@@ -67,20 +67,22 @@ const Pokedex = () => {
                   className="-mb-3"
                   placeholder={""}
                 >
-                  nombre
+                 Tu Nombre
                 </Typography>
                 <Input
                   crossOrigin={""}
+                  color="black"
                   size="lg"
                   placeholder="Tu nombre Aqui"
-                  className=" !border-t-white focus:!border-t-gray-300 text-white"
+                  className="font-bold !border-t-blue-900 focus:!border-t-light-blue-800 text-black  "
                   labelProps={{
-                    className: "before:content-none after:content-none",
+                    className: "before:content-none after:content-none ",
                   }}
                   value={inputValue}
                   onChange={(e) => setinputValue(e.target.value)}
                   id="user"
                 />
+                
               </div>
 
               <Button
@@ -98,46 +100,7 @@ const Pokedex = () => {
         </div>
       </div>
 
-      {/* <div className="border-2 border-purple-950 h-screen grid content-center">
-        <div className="border-2 border-green-600 grid justify-items-start ml-4">
-            <img className="user-logo" src={pokemonLogo} alt="" />
-             <div className={`user-info`}>
-          <div className="border-2 border-orange-600">
-           
-              <div className=" grid justify-items-center border-2 border-purple-950" style={{
-                  borderRadius: '1rem 1rem 0rem 0rem',
-                  backgroundColor: '#36b2bf'
-      }}>
-                <img className="team-rocket" src={teamRocket} alt="" />
-              </div>
-
-              <div className="input-user ">
-                <div className="register">
-                  <h1>Register</h1>
-                </div>
-                <label htmlFor="user">
-                  <h2>Name</h2>
-                </label>
-                <div className="input">
-                  <input
-                    type="text"
-                    placeholder="Introduce Your Name"
-                    value={inputValue}
-                    onChange={(e) => setinputValue(e.target.value)}
-                    id="user"
-                  />
-                  <button onClick={clickButton}>
-                    <i className="fa-solid fa-paper-plane"></i>
-                  </button>
-                </div>
-              </div>
-            
-          </div>
-        </div>
-        </div>
-      
-       
-      </div> */}
+     
     </div>
   );
 };

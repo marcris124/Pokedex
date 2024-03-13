@@ -7,7 +7,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import PokemonCard from "./PokemonCard";
 import { Link } from "react-router-dom";
 import pokemonLogo from "../Components/images/pokemonLogo3.png";
-import videoBg from "../Components/videos/paisaje.mp4";
+import videoBg from "../Components/videos/paisaje3.mp4";
 import {
   Button,
   Input,
